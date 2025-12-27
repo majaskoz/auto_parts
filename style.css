@@ -1,0 +1,352 @@
+/* Podstawowe ustawienia i płynne przewijanie */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #000;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Kontener trzymający treść w ryzach */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Menu nawigacyjne zawsze na górze */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2c3e50;
+    padding: 15px 0;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.navbar a:hover {
+    color: #3498db;
+}
+
+/* Nagłówek strony */
+header {
+    text-align: center;
+    padding: 80px 20px 40px; /* Większy padding góry ze względu na menu */
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.kontakt-glowne {
+    font-size: 1.6em;
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
+/* Sekcje */
+section {
+    padding: 40px 0;
+}
+
+h2 {
+    border-bottom: 3px solid #2c3e50;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Galeria produktów */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.karta-produktu {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.karta-produktu:hover {
+    transform: translateY(-5px);
+}
+
+/* Układ zdjęć w karcie produktu */
+.zdjecia-produktu {
+    width: 100%;
+    height: 250px;
+    overflow: hidden; /* To zatrzyma powiększane zdjęcie wewnątrz ramki */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 8px 8px 0 0;
+}
+
+.zdjecia-produktu img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.4s ease; /* Płynność powiększania */
+}
+
+/* Efekt po najechaniu myszką */
+.karta-produktu:hover .zdjecia-produktu img {
+    transform: scale(1.7); /* Powiększenie o 15% */
+}
+
+/* Stopka i kontakt */
+footer {
+    background: #2c3e50;
+    color: white;
+    padding: 40px 20px;
+    border-radius: 8px 8px 0 0;
+    margin-top: 50px;
+}
+
+footer h2 {
+    color: white;
+    border-color: #3498db;
+}
+
+.dane-kontaktowe p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+/* Responsywność - zmiany dla telefonów */
+@media (max-width: 600px) {
+    .zdjecia-produktu {
+        flex-direction: column; /* Zdjęcia jedno pod drugim na małym ekranie */
+    }
+
+    .navbar a {
+        margin: 0 5px;
+        font-size: 0.8em;
+    }
+
+    .kontakt-glowne {
+        font-size: 1.2em;
+    }
+}
+
+.podtytul {
+    font-size: 1.6em;
+    color: #000; /* Subtelny szary kolor */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.tekst-wyrozniony {
+    color: #e74c3c; /* Intensywny czerwony kolor */
+    font-weight: bold; /* Opcjonalnie: pogrubienie, by bardziej rzucało się w oczy */
+}
+
+.link-allegro {
+    color: #ff5a00; /* Kolor pomarańczowy Allegro */
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #ff5a00;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.allegro-kontener {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.przyciski-allegro {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Odstęp między przyciskami */
+    margin-top: 10px;
+}
+
+.link-allegro {
+    display: inline-block;
+    color: #ff5a00;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #ff5a00;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.link-allegro:hover {
+    background-color: #ff5a00;
+    color: white;
+    transform: scale(1.05); /* Lekkie powiększenie przycisku */
+}
+
+/* Na telefonach przyciski będą jeden pod drugim */
+@media (max-width: 600px) {
+    .przyciski-allegro {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.header-links {
+    margin: 15px 0;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.header-links a {
+    color: #ff5a00; /* Kolor Allegro */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0 5px;
+    font-size: 1.1em; /* Wyraźniejsze linki do Allegro */
+    margin: 20px 0;
+}
+
+.header-links a:hover {
+    text-decoration: underline;
+}
+
+.lista-atutow {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-atutow li {
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-left: 5px solid #e74c3c;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    font-size: 1em; /* Utrzymujemy większą, czytelną czcionkę */
+}
+
+.lista-atutow li strong {
+    color: #2c3e50;
+    display: inline; /* To sprawia, że tekst jest w jednej linii */
+    margin-right: 5px; /* Odstęp po dwukropku */
+}
+
+.pelna-oferta {
+    text-align: center;
+    margin: 50px 0;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.pelna-oferta p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    color: #000;
+}
+
+.przyciski-allegro-duze {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Dzięki temu na telefonie same wskoczą jeden pod drugi */
+}
+
+.btn-allegro {
+    background-color: #ff5a00; /* Kolor Allegro */
+    color: white;
+    padding: 18px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 250px;
+    display: inline-block;
+}
+
+.btn-allegro:hover {
+    background-color: #e65100;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 90, 0, 0.3);
+}
+
+/* Styl dla telefonów */
+@media (max-width: 600px) {
+    .btn-allegro {
+        width: 100%; /* Na małym ekranie przyciski zajmą całą szerokość */
+    }
+}
+
+.sekcja-cenowa {
+    margin: 15px 0;
+    text-align: center;
+    background: #f8f9fa; /* Delikatne tło dla wyróżnienia ceny */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.cena-netto {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.cena-brutto {
+    font-size: 1.2em; /* Teraz cena brutto jest duża */
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.cena-netto {
+    font-size: 0.9em; /* Cena netto jest mniejsza i subtelniejsza */
+    color: #7f8c8d;
+    margin-top: 5px;
+}
+
+.podatek {
+    font-size: 0.8em;
+    color: #95a5a6;
+    font-weight: normal;
+}
+
+.rabat-info {
+    font-size: 1.2em;
+    color: #27ae60; /* Kolor zielony sugerujący zysk/oszczędność */
+    margin-top: -10px; /* Zbliża napis do numeru telefonu */
+    background-color: #eafaf1; /* Bardzo delikatne zielone tło */
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px dashed #27ae60;
+    font-weight: 500;
+}
+
+.rabat-info strong {
+    color: #219150;
+    text-transform: uppercase;
+}
